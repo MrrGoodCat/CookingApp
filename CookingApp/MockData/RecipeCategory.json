@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Салати",
+        "description": "Різноманітні салати, від освіжаючих до ситних.",
+        "imageUrl": "https://e7.pngegg.com/pngimages/329/50/png-clipart-fruit-salad-salad-fruit.png"
+    },
+    {
+        "id": 2,
+        "name": "Супи",
+        "description": "Гарячі та холодні супи на будь-який смак.",
+        "imageUrl": "https://w7.pngwing.com/pngs/655/776/png-transparent-chicken-soup-lentil-soup-indian-cuisine-chicken-mull-mixed-vegetable-soup-menu-soup-food-recipe.png"
+    },
+    {
+        "id": 3,
+        "name": "М'ясні страви",
+        "description": "Ароматні та смачні страви з різних видів м'яса.",
+        "imageUrl": "https://factosvit.com.ua/wp-content/uploads/2018/07/Kebab.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Вегетаріанські страви",
+        "description": "Здорові та смачні вегетаріанські страви.",
+        "imageUrl": "https://blog.metro.ua/wp-content/uploads/2018/03/shutterstock_698004067-1024x680.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Десерти",
+        "description": "Солодкі страви, які поласують будь-який десертний зуб.",
+        "imageUrl": "https://w7.pngwing.com/pngs/324/425/png-transparent-dessert-food-dish-menu-wagamama-desserts-food-recipe-plate-thumbnail.png"
+    },
+    {
+        "id": 6,
+        "name": "Напої",
+        "description": "Освіжаючі та поживні напої для всіх сезонів.",
+        "imageUrl": "https://fresh.if.ua/wp-content/uploads/2021/04/drink.png"
+    }
+]
