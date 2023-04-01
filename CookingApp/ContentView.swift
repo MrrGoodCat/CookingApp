@@ -16,11 +16,11 @@ struct ContentView: View {
         animation: .default)
     private var items: FetchedResults<Item>
     
-    @State var dataSource: DataSource
+//        @State var dataSource: DataSource
 
     var body: some View {
         HStack {
-            HomeView(dataSource: dataSource)
+            HomeView()
         }.background(
             CustomColor.background
                 .ignoresSafeArea()
@@ -67,6 +67,6 @@ private let itemFormatter: DateFormatter = {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(dataSource: MockDataProvider()).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

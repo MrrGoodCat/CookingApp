@@ -10,7 +10,7 @@ import SwiftUI
 struct SuggestedCategoriesGrid: View {
 //    @State var suggestedCategories: [Category]
     let dataSource = container.resolve(DataSource.self)
-    @StateObject var categoryViewModel: CategoryViewModel = CategoryViewModel(dataSource: dataSource!)
+    @StateObject var categoryViewModel: CategoryViewModel = CategoryViewModel()
     var body: some View {
         
         let columns: [GridItem] = [

@@ -10,7 +10,7 @@ import Foundation
 class CategoryViewModel: ObservableObject {
     @Published var categoryItems: [RecipeCategory] = []
     
-    init(dataSource: DataSource) {
+    init() {
         getCategoryItems()
     }
     

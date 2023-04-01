@@ -6,25 +6,35 @@
 //
 
 import SwiftUI
+import Swinject
 
 @main
 struct CookingAppApp: App {
     let persistenceController = PersistenceController.shared
-    //@StateObject var categoryListView: CategoryViewModel = CategoryViewModel()
-    var dataSource: DataSource = MockDataProvider()
-
+    var container = Container()
+    lazy var dataSource: DataSource = {
+        registerDependencies()
+        return container.resolve(DataSource.self)!
+    }()
+    
+    init() {
+    }
+    
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView(dataSource: dataSource)
+                ContentView()
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                    //.environmentObject(categoryListView)
             }
         }
     }
     
-    func registerDependencies() {
+    private func registerDependencies() {
         container.register(DataSource.self) { _ in MockDataProvider() }
     }
-
 }
+
+
+
+
+

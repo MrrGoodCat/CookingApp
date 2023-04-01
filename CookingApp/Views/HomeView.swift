@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var selectedTab = 0
-    @State var dataSource: DataSource
+    //@State var dataSource: DataSource
     var body: some View {
         VStack{
             if(selectedTab == 1) {
@@ -27,6 +27,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(dataSource: MockDataProvider())
+        HomeView()
     }
 }
