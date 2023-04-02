@@ -16,8 +16,8 @@ class DataProvider: DataSource {
         return []
     }
     
-    func loadCategories() -> [RecipeCategory] {
-        return []
+    func loadCategories(completion: @escaping ([RecipeCategory]) -> Void) {
+        return 
     }
     
     func loadIngredientsFor(resipeId: Int) -> [RecipeIngredient] {

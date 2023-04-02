@@ -11,13 +11,9 @@ import Swinject
 @main
 struct CookingAppApp: App {
     let persistenceController = PersistenceController.shared
-    var container = Container()
-    lazy var dataSource: DataSource = {
-        registerDependencies()
-        return container.resolve(DataSource.self)!
-    }()
     
     init() {
+        registerDependencies()
     }
     
     var body: some Scene {
@@ -26,6 +22,7 @@ struct CookingAppApp: App {
                 ContentView()
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
             }
+            .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
     

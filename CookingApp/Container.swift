@@ -8,3 +8,7 @@
 import Swinject
 
 let container = Container()
+
+func registerDependencies() {
+    container.register(DataSource.self) { _ in MockDataProvider() }
+}

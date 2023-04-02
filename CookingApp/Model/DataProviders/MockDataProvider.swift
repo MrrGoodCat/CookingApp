@@ -8,19 +8,24 @@
 import Foundation
 
 class MockDataProvider: DataSource {
-    func loadCategories() -> [RecipeCategory] {
-        guard let jsonString = loadJson(from: "MockData\\RecipeCategory") else {
+    
+    func loadCategories(completion: @escaping ([RecipeCategory]) -> Void) {
+        guard let jsonString = Bundle.main.path(forResource: "RecipeCategory", ofType: "json").flatMap({ try? String(contentsOfFile: $0) }) else {
             print("Unable to read JSON string from file")
-            return []
+            completion([])
+            return
         }
-        
-        guard let recipeСategories = DataService.shared.parseJson(jsonString: jsonString, type: [RecipeCategory].self) else {
+
+        guard let recipeCategories = DataService.shared.parseJson(jsonString: jsonString, type: [RecipeCategory].self) else {
             print("Unable to parse JSON string into a Recipe Category object")
-            return []
+            completion([])
+            return
         }
-        
-        return recipeСategories
+
+        completion(recipeCategories)
     }
+
+
     
     func loadStepsFor(resipeId: Int) -> [RecipeStep] {
         return []

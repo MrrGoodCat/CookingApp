@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct SuggestedCategoriesGrid: View {
-//    @State var suggestedCategories: [Category]
-    let dataSource = container.resolve(DataSource.self)
-    @StateObject var categoryViewModel: CategoryViewModel = CategoryViewModel()
+    @ObservedObject var categoryViewModel: CategoryViewModel
+    
+    init() {
+        categoryViewModel = CategoryViewModel()
+    }
     var body: some View {
         
         let columns: [GridItem] = [
@@ -37,6 +39,5 @@ struct SuggestedCategoriesGrid: View {
 struct SuggestedCategoriesGrid_Previews: PreviewProvider {
     static var previews: some View {
         SuggestedCategoriesGrid()
-            //.environmentObject(CategoryViewModel())
     }
 }

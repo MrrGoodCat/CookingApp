@@ -15,8 +15,6 @@ struct ContentView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
-    
-//        @State var dataSource: DataSource
 
     var body: some View {
         HStack {

@@ -10,7 +10,7 @@ import Foundation
 protocol DataSource {
     func loadRecipes() -> [Recipe]
     func loadCategoriesFor(resipeId: Int) -> [RecipeCategory]
-    func loadCategories() -> [RecipeCategory]
+    func loadCategories(completion: @escaping ([RecipeCategory]) -> Void)
     func loadIngredientsFor(resipeId: Int) -> [RecipeIngredient]
     func loadStepsFor(resipeId: Int) -> [RecipeStep]
 }

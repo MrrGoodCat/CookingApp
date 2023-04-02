@@ -22,6 +22,7 @@ struct SuggestedCategory: View {
                 Text(category.name)
                     .foregroundColor(CustomColor.neutralAccent)
                     .font(.system(size: 16, weight: .medium, design: .default))
+                    .padding()
                 Spacer()
 
 
