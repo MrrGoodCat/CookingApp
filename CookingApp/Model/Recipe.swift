@@ -7,14 +7,6 @@
 
 import Foundation
 
-//struct Recipe {
-//    public let title: String
-//    public let images: [ObjCEnumerationImage]
-//    public let description: String
-//    public let tags: [String]
-//    public let categories: [Category]
-//}
-
 struct Recipe: Identifiable, Codable {
     let id: Int
     let userId: Int
@@ -29,7 +21,10 @@ struct Recipe: Identifiable, Codable {
     let dishTypeId: Int
     let cuisineId: Int
     let occasionId: Int
-    let createdAt: Date
-    let updatedAt: Date
+    let createdAt: String
+    let updatedAt: String
     let calories: Int
 }
+
+
+

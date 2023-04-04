@@ -9,20 +9,41 @@ import SwiftUI
 
 struct SearchRecipeView: View {
     @State private var searchText = ""
-//    @State var suggestedCategories: [Category]
+    
+    @ObservedObject var searchViewModel: SearchViewModel
+    
+    init() {
+        searchViewModel = SearchViewModel()
+    }
+    var filteredRecipes: [Recipe] {
+        searchViewModel.recipeItems.filter { recipe in
+            searchText.isEmpty || recipe.name.localizedStandardContains(searchText)
+        }
+    }
     
     var body: some View {
         VStack {
             HStack {
                 Text("Search")
-                    .font(.largeTitle)
+                    .font(.custom(CustomFont.loraBold.rawValue, size: FontSize.title1.rawValue))
                     .foregroundColor(CustomColor.foreground)
                 Spacer()
             }.padding(.horizontal, 24)
                 .padding(.top, 24)
             TextFieldWithIcon(text: $searchText, placeholder: "Search...", icon: .search, horisontalPadding: 24)
-            SuggestedCategoriesGrid()
-            Spacer()
+            if searchText == "" {
+                SuggestedCategoriesGrid(categories: searchViewModel.categoryItems)
+                Spacer()
+            } else {
+                ScrollView {
+                    LazyVStack(alignment: .leading) {
+                        ForEach (filteredRecipes) { resipe in
+                            SearchListItem(imageUrl: resipe.imageUrl!, title: resipe.name, description: resipe.description)
+                            Divider()
+                        }
+                    }.padding(.horizontal, 24)
+                }
+            }
         }
         .background(CustomColor.background)
     }

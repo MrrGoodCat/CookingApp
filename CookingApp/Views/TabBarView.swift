@@ -48,6 +48,7 @@ struct TabBarView: View {
                 VStack {
                     Spacer()
                     Text(item.text)
+                        .font(.custom(CustomFont.latoBold.rawValue, size: FontSize.body2.rawValue))
                         .foregroundColor(CustomColor.primaryAccent)
                     Image(systemName:"rectangle.fill")
                         .scaleEffect(0.3)

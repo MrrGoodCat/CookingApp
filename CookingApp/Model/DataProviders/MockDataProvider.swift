@@ -24,8 +24,6 @@ class MockDataProvider: DataSource {
 
         completion(recipeCategories)
     }
-
-
     
     func loadStepsFor(resipeId: Int) -> [RecipeStep] {
         return []
@@ -41,7 +39,7 @@ class MockDataProvider: DataSource {
 
     
     func loadRecipes(completion: @escaping ([Recipe]) -> Void) {
-        guard let jsonString = Bundle.main.path(forResource: "Recipe", ofType: "json").flatMap({ try? String(contentsOfFile: $0) }) else {
+        guard let jsonString = Bundle.main.path(forResource: "Recipes", ofType: "json").flatMap({ try? String(contentsOfFile: $0) }) else {
             print("Unable to read JSON string from file")
             completion([])
             return

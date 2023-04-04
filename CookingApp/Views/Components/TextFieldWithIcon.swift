@@ -9,6 +9,8 @@ import SwiftUI
 
 struct TextFieldWithIcon: View {
     @Binding var text: String
+    @FocusState private var isTextFieldFocused: Bool
+    
     var placeholder: String
     var icon: Icon
     var horisontalPadding: CGFloat
@@ -18,8 +20,10 @@ struct TextFieldWithIcon: View {
             CustomColor.componentBackground
                 .cornerRadius(12)
             HStack {
-                IconView(icon: icon, size: 24, color: CustomColor.neutralAccent)
+                IconView(icon: icon, size: 24, color: isTextFieldFocused ? CustomColor.foreground : CustomColor.neutralAccent)
                 TextField(self.placeholder, text: $text)
+                    .font(.custom(CustomFont.latoRegular.rawValue, size: FontSize.body1.rawValue))
+                    .focused($isTextFieldFocused)
                     
             }.padding(.horizontal, self.horisontalPadding)
         }.frame(width: UIScreen.main.bounds.width - (self.horisontalPadding * 2), height: 48)

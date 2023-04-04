@@ -8,11 +8,7 @@
 import SwiftUI
 
 struct SuggestedCategoriesGrid: View {
-    @ObservedObject var categoryViewModel: CategoryViewModel
-    
-    init() {
-        categoryViewModel = CategoryViewModel()
-    }
+    @State var categories: [RecipeCategory]
     var body: some View {
         
         let columns: [GridItem] = [
@@ -24,10 +20,10 @@ struct SuggestedCategoriesGrid: View {
             Section(header:
                         Text("Suggest")
                 .foregroundColor(CustomColor.foreground)
-                .font(.title3)
+                .font(.custom(CustomFont.latoHeavy.rawValue, size: FontSize.body1.rawValue))
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal, 8)){
-                    ForEach(categoryViewModel.categoryItems) { category in
+                .padding(.horizontal, 10)){
+                    ForEach(categories) { category in
                         SuggestedCategory(category: category)
                     }
                 }
@@ -37,7 +33,8 @@ struct SuggestedCategoriesGrid: View {
 }
 
 struct SuggestedCategoriesGrid_Previews: PreviewProvider {
+    static let searchVievModel = SearchViewModel()
     static var previews: some View {
-        SuggestedCategoriesGrid()
+        SuggestedCategoriesGrid(categories: searchVievModel.categoryItems)
     }
 }

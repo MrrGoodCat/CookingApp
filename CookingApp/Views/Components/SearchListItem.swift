@@ -19,10 +19,10 @@ struct SearchListItem: View {
                 //.padding()
             VStack(alignment: .leading) {
                 Text(title)
-                    .font(.custom(CustomFont.latoHeavy.rawValue, size: 16))
+                    .font(.custom(CustomFont.latoBold.rawValue, size: FontSize.body1.rawValue))
                     .foregroundColor(CustomColor.foreground)
                 Text(description)
-                    .font(.custom(CustomFont.latoBold.rawValue, size: 16))
+                    .font(.custom(CustomFont.latoRegular.rawValue, size: FontSize.body2.rawValue))
                     .foregroundColor(CustomColor.neutralAccent)
             }
             .padding()
