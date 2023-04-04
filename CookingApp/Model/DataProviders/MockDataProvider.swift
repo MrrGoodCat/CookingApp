@@ -40,34 +40,20 @@ class MockDataProvider: DataSource {
     }
 
     
-    func loadRecipes() -> [Recipe] {
-        guard let jsonString = loadJson(from: "MockData\\Recipes") else {
+    func loadRecipes(completion: @escaping ([Recipe]) -> Void) {
+        guard let jsonString = Bundle.main.path(forResource: "Recipe", ofType: "json").flatMap({ try? String(contentsOfFile: $0) }) else {
             print("Unable to read JSON string from file")
-            return []
+            completion([])
+            return
         }
         
         guard let recipes = DataService.shared.parseJson(jsonString: jsonString, type: [Recipe].self) else {
             print("Unable to parse JSON string into a Recipe object")
-            return []
+            completion([])
+            return
         }
         
-        return recipes
-    }
-
-    
-
-    func loadJson(from file: String) -> String? {
-        if let url = Bundle.main.url(forResource: file, withExtension: "json") {
-            do {
-                let jsonString = try String(contentsOf: url, encoding: .utf8)
-                return jsonString
-            } catch {
-                print("Error reading JSON file: \(error)")
-            }
-        } else {
-            print("File not found")
-        }
-        return nil
+        completion(recipes)
     }
 
 

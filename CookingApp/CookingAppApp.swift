@@ -14,6 +14,14 @@ struct CookingAppApp: App {
     
     init() {
         registerDependencies()
+        // Lora Bold
+        FileManager.registerFont(withFileName: "Lora-Bold.ttf")
+        // Lato Regular
+        FileManager.registerFont(withFileName: "Lato-Regular.ttf")
+        // Lato Bold
+        FileManager.registerFont(withFileName: "Lato-Bold.ttf")
+        // Lato Black
+        FileManager.registerFont(withFileName: "Lato-Black.ttf")
     }
     
     var body: some Scene {

@@ -16,6 +16,7 @@ struct SuggestedCategory: View {
                 .cornerRadius(16)
             VStack {
                 DataProcessor.loadImage(from: category.imageUrl, frameWidth: 61, frameHeight: 64)
+                    .cornerRadius(16)
                     .padding()
                     
                 Spacer()

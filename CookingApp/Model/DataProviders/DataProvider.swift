@@ -8,8 +8,8 @@
 import Foundation
 
 class DataProvider: DataSource {
-    func loadRecipes() -> [Recipe] {
-        return []
+    func loadRecipes(completion: @escaping ([Recipe]) -> Void) {
+        return
     }
     
     func loadCategoriesFor(resipeId: Int) -> [RecipeCategory] {

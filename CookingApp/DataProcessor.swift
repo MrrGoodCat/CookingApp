@@ -18,11 +18,11 @@ struct DataProcessor {
                 case .success(let image):
                     image
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
+                        .aspectRatio(contentMode: .fill)
                 case .failure:
                     Image(systemName: "photo")
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
+                        .aspectRatio(contentMode: .fill)
                         .foregroundColor(CustomColor.neutralAccent)
                 case .empty:
                     ProgressView()
@@ -32,6 +32,7 @@ struct DataProcessor {
             }
             asyncImage
                 .frame(width: frameWidth, height: frameHeigh)
+                .clipped()
         } else {
             Image(systemName: "photo")
                 .resizable()
@@ -49,11 +50,11 @@ struct DataProcessor {
                 case .success(let image):
                     image
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
+                        .aspectRatio(contentMode: .fill)
                 case .failure:
                     Image(systemName: "photo")
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
+                        .aspectRatio(contentMode: .fill)
                         .foregroundColor(CustomColor.neutralAccent)
                 case .empty:
                     ProgressView()
@@ -63,6 +64,7 @@ struct DataProcessor {
             }
             asyncImage
                 .frame(width: frameWidth, height: frameHeight)
+                .clipped()
         } else {
             Image(systemName: "photo")
                 .resizable()
