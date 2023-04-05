@@ -32,7 +32,7 @@ struct SearchRecipeView: View {
                 .padding(.top, 24)
             TextFieldWithIcon(text: $searchText, placeholder: "Search...", icon: .search, horisontalPadding: 24)
             if searchText == "" {
-                SuggestedCategoriesGrid(categories: searchViewModel.categoryItems)
+                SuggestedCategoriesGrid(categories: $searchViewModel.categoryItems)
                 Spacer()
             } else {
                 ScrollView {

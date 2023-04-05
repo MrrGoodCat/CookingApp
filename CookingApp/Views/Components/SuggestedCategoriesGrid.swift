@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SuggestedCategoriesGrid: View {
-    @State var categories: [RecipeCategory]
+    @Binding var categories: [RecipeCategory]
     var body: some View {
         
         let columns: [GridItem] = [
@@ -35,6 +35,6 @@ struct SuggestedCategoriesGrid: View {
 struct SuggestedCategoriesGrid_Previews: PreviewProvider {
     static let searchVievModel = SearchViewModel()
     static var previews: some View {
-        SuggestedCategoriesGrid(categories: searchVievModel.categoryItems)
+        SuggestedCategoriesGrid(categories: .constant(searchVievModel.categoryItems) )
     }
 }
